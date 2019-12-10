@@ -10,22 +10,32 @@
 Description: This will return the version of the web application \
 ``urls:api/version``\
 Method: GET
+```bash
+http --form GET http://127.0.0.1:8000/api/version
+```
 
 
 2.Description: This will login user by using token method.\
 ``urls:api/login`` \
 Method: POST
+```bash
+http --form POST http://127.0.0.1:8000/api/login
+```
+
 
 3.Description: This will logout users. \
 ``urls:api/logout`` \
 Method: POST
+```bash
+http --form POST http://127.0.0.1:8000/api/logout
+```
 
 
 4.Description: This will upload csv file for student data. \
 ``urls:api/student-file-uploads`` \
 Method: POST \
 
-Base code sample for uploading sample csv
+Base code sample for uploading sample csv or uploading on Django Admin
 ```bash
 openssl base64 -in sample.csv > sample.csv.base64
 http POST :8000/api/student-file-uploads attached_file_name=sample.csv attached_file=@sample.csv.base64 title="2018 Master sheet test" description="This is a test of uploading file."
@@ -196,6 +206,10 @@ class LLIStudentMasterSheetUploadSerializer(serializers.Serializer):
 5.Description: This will send a daily notice email start at 30 days before the student immigration status expire \
 ``urls:api/immi-check`` \
 Method: GET \
+`This will be done by the django backgroud automatelly, to test, the bash command is:`
+```bash
+python3 manage.py email_when_immi_due
+```
 
 The views.py file has the following code:
 ```python
@@ -314,6 +328,10 @@ class LLIStudentDataSerializer(serializers.Serializer):
 6.Description: This will send a daily notice email start at 7 days before the student payment expires \
 ``urls:api/immi-check`` \
 Method: GET \
+`This will be done by the django backgroud automatelly, to test, the bash command is:`
+```bash
+python3 manage.py email_when_payment_due
+```
 
 The views.py file has the following code:
 ```python
@@ -393,6 +411,10 @@ Code in Serializer file: `Same Serializer as 5`
 7.Description: This will send a daily notice email start at 7 days before the student insurance expires \
 ``urls:api/immi-check`` \
 Method: GET \
+`This will be done by the django backgroud automatelly, to test, the bash command is:`
+```bash
+python3 manage.py email_when_insurance_due
+```
 
 The views.py file has the following code:
 ```python
