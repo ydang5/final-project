@@ -195,7 +195,7 @@ class LLIStudentMasterSheetUploadSerializer(serializers.Serializer):
 
 5.Description: This will send a daily notice email start at 30 days before the student immigration status expire \
 ``urls:api/immi-check`` \
-Method: POST \
+Method: GET \
 
 The views.py file has the following code:
 ```python
@@ -313,7 +313,7 @@ class LLIStudentDataSerializer(serializers.Serializer):
 ```
 6.Description: This will send a daily notice email start at 7 days before the student payment expires \
 ``urls:api/immi-check`` \
-Method: POST \
+Method: GET \
 
 The views.py file has the following code:
 ```python
@@ -392,7 +392,7 @@ Code in Serializer file: `Same Serializer as 5`
 
 7.Description: This will send a daily notice email start at 7 days before the student insurance expires \
 ``urls:api/immi-check`` \
-Method: POST \
+Method: GET \
 
 The views.py file has the following code:
 ```python
