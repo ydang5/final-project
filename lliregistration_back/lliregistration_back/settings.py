@@ -43,7 +43,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders'
+    'corsheaders',
+    'django_cron',
 ]
 
 MIDDLEWARE = [
@@ -113,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
@@ -148,3 +149,13 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CRON_CLASSES = [
+    "foundation.crons.MyCronJob",
+    "foundation.crons.ImmigrationStatusEmailJob",
+    "foundation.crons.PaymentEmailJob",
+    "foundation.crons.InsuranceEmailJob",
+    # ...
+]
